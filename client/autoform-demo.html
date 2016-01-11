@@ -1,0 +1,36 @@
+<head>
+  <title>Demo for autoform getFieldValue bug</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h2>AutoForm getFieldValue bug example</h2>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p>To reproduce:</p>
+                        <ol>
+                            <li>Add several items to the "Fields"</li>
+                            <li>Select types for those items</li>
+                            <li>Remove an item that is in the middle</li>
+                        </ol>
+                        <p>
+                            You can see that items after that are now showing
+                            incorrect values of "type" field.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                {{>quickForm id="typeForm" schema="TypeSchema" type=normal }}
+            </div>
+        </div>
+    </div>
+</body>
+
+<template name="fieldOptions">
+    Selected type: {{ getSelectedType }}
+</template>
